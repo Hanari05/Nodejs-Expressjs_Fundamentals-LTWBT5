@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-expressjs_fundamentals-ltwbt5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hanari05/Nodejs-Expressjs_Fundamentals-LTWBT5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Hanari05/Nodejs-Expressjs_Fundamentals-LTWBT5/issues"
+  },
+  "homepage": "https://github.com/Hanari05/Nodejs-Expressjs_Fundamentals-LTWBT5#readme",
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1"
+  }
+}
