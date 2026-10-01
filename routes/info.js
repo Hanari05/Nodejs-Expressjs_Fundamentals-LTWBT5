@@ -8,9 +8,9 @@ const checkAge = require("../middlewares/checkAge");
  * Middleware: checkAge (age phải >= 18)
  */
 router.get("/info", checkAge, (req, res) => {
-  const { name, age } = req.query;
+  const { name } = req.query;
 
-  if (!name) {
+  if (typeof name !== "string" || name.trim() === "") {
     return res.status(400).json({
       success: false,
       message: "Name is required.",
@@ -21,8 +21,8 @@ router.get("/info", checkAge, (req, res) => {
     success: true,
     message: "Request successful.",
     data: {
-      name: name,
-      age: parseInt(age),
+      name: name.trim(),
+      age: req.age,
     },
   });
 });

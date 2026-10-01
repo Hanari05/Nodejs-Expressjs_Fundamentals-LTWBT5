@@ -1,17 +1,21 @@
 /**
  * Middleware kiểm tra age từ Query String
- * - Nếu age < 18: trả về lỗi, không cho request đi tiếp
+ * - age thiếu / không phải số nguyên hợp lệ: 400
+ * - Nếu age < 18: trả về lỗi 403, không cho request đi tiếp
  * - Nếu age >= 18: tiếp tục xử lý
  */
 const checkAge = (req, res, next) => {
-  const age = parseInt(req.query.age);
+  const raw = req.query.age;
 
-  if (isNaN(age)) {
+  // raw phải là 1 chuỗi duy nhất (chặn ?age=1&age=2 -> array) và là số nguyên thuần
+  if (typeof raw !== "string" || !/^-?\d+$/.test(raw.trim())) {
     return res.status(400).json({
       success: false,
-      message: "Age is required and must be a number.",
+      message: "Age is required and must be a valid integer.",
     });
   }
+
+  const age = Number(raw.trim());
 
   if (age < 18) {
     return res.status(403).json({
@@ -20,6 +24,7 @@ const checkAge = (req, res, next) => {
     });
   }
 
+  req.age = age; // để route handler dùng lại, không parse lần 2
   next();
 };
 

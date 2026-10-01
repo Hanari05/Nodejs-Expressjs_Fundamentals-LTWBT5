@@ -12,7 +12,12 @@ Nhận 2 tham số từ **Query String**:
 | `name`  | string | Tên người dùng      |
 | `age`   | number | Tuổi người dùng     |
 
-**Middleware:** Kiểm tra `age` — nếu `age < 18` sẽ trả về lỗi `403`.
+**Middleware:** Kiểm tra `age`:
+- `age < 18` → `403 Forbidden`.
+- `age` thiếu hoặc không phải số nguyên hợp lệ (vd: `abc`, `20abc`, `18.5`, `age` lặp lại) → `400 Bad Request`.
+- `age >= 18` → tiếp tục xử lý.
+
+Route cũng trả `400` nếu thiếu `name`, và các route không tồn tại trả về `404` dạng JSON.
 
 #### Ví dụ request hợp lệ
 ```

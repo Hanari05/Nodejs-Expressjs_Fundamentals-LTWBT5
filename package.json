@@ -1,7 +1,7 @@
 {
   "name": "nodejs-expressjs_fundamentals-ltwbt5",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express.js API exercise: GET /api/info with an age-checking middleware",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Hanari05/Nodejs-Expressjs_Fundamentals-LTWBT5.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Hanari05",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
