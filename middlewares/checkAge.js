@@ -7,7 +7,6 @@
 const checkAge = (req, res, next) => {
   const raw = req.query.age;
 
-  // raw phải là 1 chuỗi duy nhất (chặn ?age=1&age=2 -> array) và là số nguyên thuần
   if (typeof raw !== "string" || !/^-?\d+$/.test(raw.trim())) {
     return res.status(400).json({
       success: false,
@@ -24,7 +23,7 @@ const checkAge = (req, res, next) => {
     });
   }
 
-  req.age = age; // để route handler dùng lại, không parse lần 2
+  req.age = age;
   next();
 };
 

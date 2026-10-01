@@ -21,7 +21,7 @@ Route cũng trả `400` nếu thiếu `name`, và các route không tồn tại 
 
 #### Ví dụ request hợp lệ
 ```
-GET /api/info?name=John&age=20
+GET /api/info?name=Han&age=21
 ```
 
 #### Response thành công (`age >= 18`)
@@ -30,8 +30,8 @@ GET /api/info?name=John&age=20
   "success": true,
   "message": "Request successful.",
   "data": {
-    "name": "John",
-    "age": 20
+    "name": "Hana",
+    "age": 21
   }
 }
 ```

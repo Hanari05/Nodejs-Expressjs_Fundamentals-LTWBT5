@@ -5,10 +5,12 @@ const infoRouter = require("./routes/info");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Routes
+app.get("/", (req, res) => {
+  res.json({ message: "API is running. Try GET /api/info?name=Han&age=21" });
+});
+
 app.use("/api", infoRouter);
 
-// 404 handler (JSON)
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -16,8 +18,6 @@ app.use((req, res) => {
   });
 });
 
-// Error handler (JSON)
-// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({
@@ -26,7 +26,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
